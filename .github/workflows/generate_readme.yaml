@@ -34,6 +34,8 @@ jobs:
       - name: Generate Prod README
         if: github.ref_name == 'main'
         run: |
+          git config --global user.email "github-actions@example.com"
+          git config --global user.name "GitHub Actions"
           git checkout -b readme-update-prod
           make readme ENVIRONMENT_NAME='prod'
           ls
