@@ -35,7 +35,7 @@ jobs:
         if: github.ref_name == 'main'
         run: |
           git config --global user.email "github-actions@example.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.name "GitHub README Action"
           git checkout -b readme-update-prod
           make readme ENVIRONMENT_NAME='prod'
           ls
@@ -50,7 +50,7 @@ jobs:
         id: create-pr
         if: env.PULL_REQ_NUMBER == ''
         run: |
-          gh pr create --base main --head readme-update-prod --title 'README Update: Prod Update."
+          gh pr create --base main --head readme-update-prod --title 'README Update: Prod Update.'
   
   # Test:
   #   runs-on: ubuntu-latest
