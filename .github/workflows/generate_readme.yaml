@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'config/account_info.*.json'
+      - '.github/workflows/generate_readme.yaml'
 permissions:
       id-token: write
       contents: write
@@ -35,7 +36,8 @@ jobs:
         run: |
           git checkout -b readme-update-prod
           make generate_readme ENVIRONMENT_NAME='prod'
-          sleep 10s
+          sleep 20s
+          ls
           git add README.md
           git commit -m "Updating Prod README file"
           git push --set-upstream origin readme-update-prod
