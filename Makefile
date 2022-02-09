@@ -12,7 +12,7 @@ deploy:
 	@python3 ./deploy/deploy.py --account_number $(ACCOUNT_NUMBER) --aws_environment $(ENVIRONMENT_NAME)
 	@echo "OK: $@"
 
-generate_readme:
+readme:
 	@python3 ./generate_readme/script.py --aws_environment $(ENVIRONMENT_NAME)
 	@echo "OK: $@"
 

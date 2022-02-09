@@ -20,23 +20,22 @@ jobs:
         if: github.ref_name == 'dev'
         run: |
           git checkout -b readme-update-dev
-          make generate_readme ENVIRONMENT_NAME='dev'
+          make readme ENVIRONMENT_NAME='dev'
       - name: Generate Test README
         if: github.ref_name == 'test'
         run: |
           git checkout -b readme-update-test
-          make generate_readme ENVIRONMENT_NAME='test'
+          make readme ENVIRONMENT_NAME='test'
       - name: Generate Staging README
         if: github.ref_name == 'staging'
         run: |
           git checkout -b readme-update-staging
-          make generate_readme ENVIRONMENT_NAME='staging'
+          make readme ENVIRONMENT_NAME='staging'
       - name: Generate Prod README
         if: github.ref_name == 'main'
         run: |
           git checkout -b readme-update-prod
-          make generate_readme ENVIRONMENT_NAME='prod'
-          sleep 20s
+          make readme ENVIRONMENT_NAME='prod'
           ls
           git add README.md
           git commit -m "Updating Prod README file"
