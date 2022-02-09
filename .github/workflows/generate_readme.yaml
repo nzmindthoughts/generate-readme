@@ -7,6 +7,8 @@ permissions:
       id-token: write
       contents: write
       pull-requests: write
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   GenerateReadMe:
     runs-on: ubuntu-latest
@@ -16,19 +18,36 @@ jobs:
       - name: Generate Dev README
         if: github.ref_name == 'dev'
         run: |
+          git checkout -b readme-update-dev
           make generate_readme ENVIRONMENT_NAME='dev'
       - name: Generate Test README
         if: github.ref_name == 'test'
         run: |
+          git checkout -b readme-update-test
           make generate_readme ENVIRONMENT_NAME='test'
       - name: Generate Staging README
         if: github.ref_name == 'staging'
         run: |
+          git checkout -b readme-update-staging
           make generate_readme ENVIRONMENT_NAME='staging'
       - name: Generate Prod README
         if: github.ref_name == 'main'
         run: |
+          git checkout -b readme-update-prod
           make generate_readme ENVIRONMENT_NAME='prod'
+          git add README.md
+          git commit -m "Updating Prod README file"
+          git push --set-upstream origin readme-update-prod
+      - name: Look for existing open PR
+        run: |
+          pullreqnumber="$(gh pr status --json number,baseRefName,state -q '.currentBranch | select((.baseRefName == "main") and (.state == "OPEN")) | .number')"
+          echo 'PULL_REQ_NUMBER='$pullreqnumber >> $GITHUB_ENV
+      - name: Create PR
+        id: create-pr
+        if: env.PULL_REQ_NUMBER == ''
+        run: |
+          gh pr create --base main --head readme-update-prod --title 'README Update: Prod Update."
+  
   # Test:
   #   runs-on: ubuntu-latest
   #   steps:
