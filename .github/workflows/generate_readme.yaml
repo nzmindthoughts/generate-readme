@@ -37,7 +37,7 @@ jobs:
           git checkout -b readme-update-prod
           make readme ENVIRONMENT_NAME='prod'
           ls
-          git add README.md
+          git add -f README.md
           git commit -m "Updating Prod README file"
           git push --set-upstream origin readme-update-prod
       - name: Look for existing open PR
