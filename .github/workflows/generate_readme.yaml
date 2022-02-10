@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.commits) }}
         run: |
           echo "$GITHUB_CONTEXT"
       # - name: Generate Dev README Update
