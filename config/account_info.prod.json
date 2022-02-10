@@ -6,5 +6,10 @@
     "ApplicationName": "Rengoku",
     "ApplicationNetworkType": "internet-only",
     "ApplicationPrimaryStakeholder": "Inosuke",
-    "ApplicationSecondaryStakeholder": "Tanjiro"
+    "ApplicationSecondaryStakeholder": "Tanjiro",
+    "RootEmail": "awsorganizations+Rengoku@tsamuel33.com",
+    "AccountNumber": "123456789012",
+    "OrgAccountClass": "Application",
+    "OrgPath": "Application/Prod",
+    "CostCenter": "1234556"
 }

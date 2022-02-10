@@ -1,10 +1,17 @@
-# Managed Security Pipeline {{ alias }}
+# {{ alias }}
 
-* "AccountAlias": {{ alias }}
-* "ApplicationEnvironment": {{ env }}
-* "ApplicationGroup": {{ group }}
-* "ApplicationId": {{ Id }}
-* "ApplicationName": {{ name }}
-* "ApplicationNetworkType": "internet-only",
-* "ApplicationPrimaryStakeholder": {{ primary }}
-* "ApplicationSecondaryStakeholder": {{ secondary }}
+## Account Information
+
+* Registered Account ID: `{{ accountnumber }}`
+* Registered Account Name: `{{ name }}`
+* Registered Account Email: `{{ rootemail }}`
+* Organizations Path: {{ orgpath }}
+* Application ID: `{{ AppId }}`
+* Application Class: {{ class }}
+* Application Group: {{ group }}
+* Environment: {{ env }}
+* Cost Center: {{ costcenter }}
+* Stakeholders:
+  * Primary: {{ primary }}
+  * Secondary: {{ secondary }}
+* Network Type: {{ networktype }}

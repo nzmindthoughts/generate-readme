@@ -28,10 +28,16 @@ def get_render_variables(file):
     output['alias'] = obj['AccountAlias']
     output['env'] = obj['ApplicationEnvironment']
     output['group'] = obj['ApplicationGroup']
-    output['Id'] = obj['ApplicationId']
+    output['AppId'] = obj['ApplicationId']
     output['name'] = obj['ApplicationName']
+    output['networktype'] = obj['ApplicationNetworkType']
     output['primary'] = obj['ApplicationPrimaryStakeholder']
     output['secondary'] = obj['ApplicationSecondaryStakeholder']
+    output['rootemail'] = obj['RootEmail']
+    output['accountnumber'] = obj['AccountNumber']
+    output['class'] = obj['OrgAccountClass']
+    output['orgpath'] = obj['OrgPath']
+    output['costcenter'] = obj['CostCenter']
     return output
 
 def main():
