@@ -1,10 +1,17 @@
-# Managed Security Pipeline Demon Slayer Corps
+# Demon Slayer Corps
 
-* "AccountAlias": Demon Slayer Corps
-* "ApplicationEnvironment": prod
-* "ApplicationGroup": Application
-* "ApplicationId": Nichirin
-* "ApplicationName": Rengoku
-* "ApplicationNetworkType": "internet-only",
-* "ApplicationPrimaryStakeholder": Inosuke
-* "ApplicationSecondaryStakeholder": Tanjiro
+## Account Information
+
+* Registered Account ID: `123456789012`
+* Registered Account Name: `Rengoku`
+* Registered Account Email: `awsorganizations+Rengoku@tsamuel33.com`
+* Organizations Path: Application/Prod
+* Application ID: `Nichirin`
+* Application Class: Application
+* Application Group: Application
+* Environment: prod
+* Cost Center: 1234556
+* Stakeholders:
+  * Primary: Inosuke
+  * Secondary: Tanjiro
+* Network Type: internet-only
