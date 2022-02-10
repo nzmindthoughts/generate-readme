@@ -20,9 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.ref_name == 'dev' && github.event
     steps:
-      - name: Print Event
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo ${{ github.event.push }}
+          echo "$GITHUB_CONTEXT"
       # - name: Generate Dev README Update
       #   if: github.ref_name == 'dev'
       #   uses: ./.github/actions/generate-readme
