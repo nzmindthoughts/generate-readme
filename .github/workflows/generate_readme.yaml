@@ -4,6 +4,11 @@ on:
     paths:
       - 'config/account_info.*.json'
       - '.github/workflows/generate_readme.yaml'
+    branches:
+      - dev
+      - test
+      - staging
+      - main
 permissions:
       id-token: write
       contents: write
@@ -13,41 +18,72 @@ env:
 jobs:
   GenerateReadMe:
     runs-on: ubuntu-latest
+    # if: github.ref_name == 'dev' && github.event
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Generate Dev README
-        if: github.ref_name == 'dev'
+      - name: Print Event
         run: |
-          git checkout -b readme-update-dev
-          make readme ENVIRONMENT_NAME='dev'
-      - name: Generate Test README
-        if: github.ref_name == 'test'
-        run: |
-          git checkout -b readme-update-test
-          make readme ENVIRONMENT_NAME='test'
-      - name: Generate Staging README
-        if: github.ref_name == 'staging'
-        run: |
-          git checkout -b readme-update-staging
-          make readme ENVIRONMENT_NAME='staging'
-      - name: Generate Prod README
-        if: github.ref_name == 'main'
-        run: |
-          git config --global user.email "github-actions@example.com"
-          git config --global user.name "GitHub README Action"
-          git checkout -b readme-update-prod
-          make readme ENVIRONMENT_NAME='prod'
-          ls
-          git add -f README.md
-          git commit -m "Updating Prod README file"
-          git push --set-upstream origin readme-update-prod
-      - name: Look for existing open PR
-        run: |
-          pullreqnumber="$(gh pr status --json number,baseRefName,state -q '.currentBranch | select((.baseRefName == "main") and (.state == "OPEN")) | .number')"
-          echo 'PULL_REQ_NUMBER='$pullreqnumber >> $GITHUB_ENV
-      - name: Create PR
-        id: create-pr
-        if: env.PULL_REQ_NUMBER == ''
-        run: |
-          gh pr create --base main --head readme-update-prod --title 'README Update: Prod Update.' --body "Updating README file"
+          echo ${{ github.event.push }}
+      # - name: Generate Dev README Update
+      #   if: github.ref_name == 'dev'
+      #   uses: ./.github/actions/generate-readme
+      #   with:
+      #     environment-name: 'dev'
+      #     target-branch: 'dev'
+      # - name: Generate Test README Update
+      #   if: github.ref_name == 'test'
+      #   uses: ./.github/actions/generate-readme
+      #   with:
+      #     environment-name: 'test'
+      #     target-branch: 'test'
+      # - name: Generate Staging README Update
+      #   if: github.ref_name == 'staging'
+      #   uses: ./.github/actions/generate-readme
+      #   with:
+      #     environment-name: 'staging'
+      #     target-branch: 'staging'
+      # - name: Generate Prod README Update
+      #   if: github.ref_name == 'main'
+      #   uses: ./.github/actions/generate-readme
+      #   with:
+      #     environment-name: 'prod'
+      #     target-branch: 'main'
+
+
+      
+      # - name: Checkout
+      #   uses: actions/checkout@v2
+      # - name: Generate Dev README
+      #   if: github.ref_name == 'dev'
+      #   run: |
+      #     git checkout -b readme-update-dev
+      #     make readme ENVIRONMENT_NAME='dev'
+      # - name: Generate Test README
+      #   if: github.ref_name == 'test'
+      #   run: |
+      #     git checkout -b readme-update-test
+      #     make readme ENVIRONMENT_NAME='test'
+      # - name: Generate Staging README
+      #   if: github.ref_name == 'staging'
+      #   run: |
+      #     git checkout -b readme-update-staging
+      #     make readme ENVIRONMENT_NAME='staging'
+      # - name: Generate Prod README
+      #   if: github.ref_name == 'main'
+      #   run: |
+      #     git config --global user.email "github-actions@example.com"
+      #     git config --global user.name "GitHub README Action"
+      #     git checkout -b readme-update-prod
+      #     make readme ENVIRONMENT_NAME='prod'
+      #     ls
+      #     git add -f README.md
+      #     git commit -m "Updating Prod README file"
+      #     git push --set-upstream origin readme-update-prod
+      # - name: Look for existing open PR
+      #   run: |
+      #     pullreqnumber="$(gh pr status --json number,baseRefName,state -q '.currentBranch | select((.baseRefName == "main") and (.state == "OPEN")) | .number')"
+      #     echo 'PULL_REQ_NUMBER='$pullreqnumber >> $GITHUB_ENV
+      # - name: Create PR
+      #   id: create-pr
+      #   if: env.PULL_REQ_NUMBER == ''
+      #   run: |
+      #     gh pr create --base main --head readme-update-prod --title 'README Update: Prod Update.' --body "Updating README file"
