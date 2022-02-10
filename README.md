@@ -3,7 +3,7 @@
 ## Account Information
 
 * Registered Account ID: `123456789012`
-* Registered Account Name: `Rengoku`
+* Registered Account Name: `Goku`
 * Registered Account Email: `awsorganizations+Rengoku@tsamuel33.com`
 * Organizations Path: Application/Prod
 * Application ID: `Nichirin`
