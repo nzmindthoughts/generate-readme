@@ -7,7 +7,6 @@
 * Stakeholders:
   * Primary: Trunks
   * Secondary: Goten
-* Application Class: Application
 * Network Type: internet-only
 * Cost Center: 1234556
 
