@@ -1,0 +1,15 @@
+{
+    "AccountAlias": "Demon Slayer Corps",
+    "ApplicationEnvironment": "prod",
+    "ApplicationGroup": "Application",
+    "ApplicationId": "Nichirin",
+    "ApplicationName": "Gohan",
+    "ApplicationNetworkType": "internet-only",
+    "ApplicationPrimaryStakeholder": "Inosuke",
+    "ApplicationSecondaryStakeholder": "Tanjiro",
+    "RootEmail": "awsorganizations+Rengoku@tsamuel33.com",
+    "AccountNumber": "123456789012",
+    "OrgAccountClass": "Application",
+    "OrgPath": "Application/Prod",
+    "CostCenter": "1234556"
+}
