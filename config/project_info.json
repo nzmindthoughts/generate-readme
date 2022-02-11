@@ -5,7 +5,7 @@
     "ApplicationPrimaryStakeholder": "Goku",
     "ApplicationSecondaryStakeholder": "Vegeta",
     "DevAccountNumber": "123456789012",
-    "TestAccountNumber": "",
+    "TestAccountNumber": "2",
     "StagingAccountNumber": "",
     "ProdAccountNumber": "",
     "OrgAccountClass": "Application",
