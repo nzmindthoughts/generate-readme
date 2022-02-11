@@ -33,5 +33,5 @@ runs:
       id: create-pr
       if: env.PULL_REQ_NUMBER == ''
       run: |
-        gh pr create --base ${{ inputs.target-branch }} --head readme-update-${{ inputs.environment-name }} --title 'README Update: ${{ inputs.environment-name }} Update.' --body "Updating ${{ inputs.environment-name }} README file"
+        gh pr create --base ${{ inputs.target-branch }} --head readme-update-${{ inputs.environment-name }} --title 'README Update: ${{ inputs.environment-name }} Update.' --body "Updating README file on ${{ inputs.environment-name }} branch"
       shell: bash
