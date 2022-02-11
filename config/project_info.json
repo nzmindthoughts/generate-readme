@@ -1,0 +1,17 @@
+{
+    "ApplicationGroup": "Application",
+    "ApplicationName": "Z Fighers",
+    "ApplicationNetworkType": "internet-only",
+    "ApplicationPrimaryStakeholder": "Goku",
+    "ApplicationSecondaryStakeholder": "Vegeta",
+    "DevAccountNumber": "123456789012",
+    "TestAccountNumber": "234567890123",
+    "StagingAccountNumber": "345678901234",
+    "ProdAccountNumber": "456789012345",
+    "OrgAccountClass": "Application",
+    "DevOrgPath": "Application/Dev",
+    "TestOrgPath": "Application/Test",
+    "StagingOrgPath": "Application/Test",
+    "ProdOrgPath": "Application/Prod",
+    "CostCenter": "1234556"
+}
