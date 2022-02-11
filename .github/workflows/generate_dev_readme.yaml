@@ -1,0 +1,23 @@
+name: Generate Dev README file
+on:
+  push:
+    paths:
+      - 'config/account_info.dev.json'
+    branches:
+      - dev
+permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  GenerateReadMe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate README Update
+        if: github.ref_name == 'dev'
+        uses: ./.github/actions/generate-readme
+        with:
+          environment-name: 'dev'
+          target-branch: 'dev'

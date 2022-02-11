@@ -1,18 +1,16 @@
-# from jinja2 import Environment, FileSystemLoader
 from jinja2 import Template
 import argparse
 import json
 from pathlib import Path
 
-# parser = argparse.ArgumentParser(description='Accept application environment')
-# parser.add_argument('--aws_environment', type=str, help='Environment of AWS account in which templates will be deployed', required=True)
-# args = vars(parser.parse_args())
+parser = argparse.ArgumentParser(description='Accept application environment')
+parser.add_argument('--aws_environment', type=str, help='Environment of AWS account in which templates will be deployed', required=True)
+args = vars(parser.parse_args())
 
-# ENVIRONMENT_NAME = args['aws_environment']
-ENVIRONMENT_NAME = 'prod'
+ENVIRONMENT_NAME = args['aws_environment']
 GENERATE_DIR = Path(__file__).parents[0]
 ROOT_DIR = Path(GENERATE_DIR).parents[0]
-JINJA_TEMPLATE_DIR = ROOT_DIR / 'jinjastuff'
+JINJA_TEMPLATE_DIR = ROOT_DIR / 'jinja'
 CONFIG_DIR = ROOT_DIR / 'config'
 CONFIG_FILE_NAME = 'account_info.'+ENVIRONMENT_NAME+'.json'
 

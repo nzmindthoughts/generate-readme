@@ -13,7 +13,7 @@ deploy:
 	@echo "OK: $@"
 
 readme:
-	@python3 ./generate_readme/script.py --aws_environment $(ENVIRONMENT_NAME)
+	@python3 ./generate_readme/readme_script.py --aws_environment $(ENVIRONMENT_NAME)
 	@echo "OK: $@"
 
 clean:
