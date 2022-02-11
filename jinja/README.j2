@@ -1,17 +1,28 @@
-# {{ alias }}
+# {{ name }}
 
-## Account Information
+## Project Information
 
-* Registered Account ID: `{{ accountnumber }}`
-* Registered Account Name: `{{ name }}`
-* Registered Account Email: `{{ rootemail }}`
-* Organizations Path: {{ orgpath }}
-* Application ID: `{{ AppId }}`
-* Application Class: {{ class }}
+* Application Name: `{{ name }}`
 * Application Group: {{ group }}
-* Environment: {{ env }}
-* Cost Center: {{ costcenter }}
 * Stakeholders:
   * Primary: {{ primary }}
   * Secondary: {{ secondary }}
+* Application Class: {{ class }}
 * Network Type: {{ networktype }}
+* Cost Center: {{ costcenter }}
+
+### Dev Account Details
+* Account Number: `{{ devaccountnumber }}`
+* Organizations Path: {{ devorgpath }}
+
+### Test Account Details
+* Account Number: `{{ testaccountnumber }}`
+* Organizations Path: {{ testorgpath }}
+
+### Staging Account Details
+* Account Number: `{{ stagingaccountnumber }}`
+* Organizations Path: {{ stagingorgpath }}
+
+### Prod Account Details
+* Account Number: `{{ prodaccountnumber }}`
+* Organizations Path: {{ prodorgpath }}

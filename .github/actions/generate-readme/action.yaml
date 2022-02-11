@@ -11,18 +11,16 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: Generate README
       run: |
         git checkout -b readme-update-${{ inputs.environment-name }}
-        make readme ENVIRONMENT_NAME='${{ inputs.environment-name }}'
+        make readme
       shell: bash
     - name: Commit README
       run: |
         git config --global user.email "github-actions@example.com"
         git config --global user.name "GitHub README Action"
-        git add -f README.md
+        git add README.md
         git commit -m "Updating ${{ inputs.environment-name }} README file"
         git push --set-upstream origin readme-update-${{ inputs.environment-name }}
       shell: bash
@@ -35,5 +33,5 @@ runs:
       id: create-pr
       if: env.PULL_REQ_NUMBER == ''
       run: |
-        gh pr create --base ${{ inputs.target-branch }} --head readme-update-${{ inputs.environment-name }} --title 'README Update: ${{ inputs.environment-name }} Update.' --body "Updating ${{ inputs.environment-name }} README file"
+        gh pr create --base ${{ inputs.target-branch }} --head readme-update-${{ inputs.environment-name }} --title 'README Update: ${{ inputs.environment-name }} Update.' --body "Updating README file on ${{ inputs.environment-name }} branch"
       shell: bash

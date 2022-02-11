@@ -1,10 +1,10 @@
-name: Generate Staging README file
+name: Generate README file
 on:
   push:
     paths:
-      - 'config/account_info.staging.json'
+      - 'config/project_info.json'
     branches:
-      - staging
+      - dev
 permissions:
       id-token: write
       contents: write
@@ -15,8 +15,10 @@ jobs:
   GenerateReadMe:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Generate README Update
         uses: ./.github/actions/generate-readme
         with:
-          environment-name: 'staging'
-          target-branch: 'staging'
+          environment-name: 'dev'
+          target-branch: 'dev'
