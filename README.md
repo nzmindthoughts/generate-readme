@@ -1,17 +1,28 @@
-# Demon Slayer Corps
+# Z Fighers
 
-## Account Information
+## Project Information
 
-* Registered Account ID: `123456789012`
-* Registered Account Name: `Rengoku`
-* Registered Account Email: `awsorganizations+Rengoku@tsamuel33.com`
-* Organizations Path: Application/Prod
-* Application ID: `Nichirin`
-* Application Class: Application
+* Application Name: `Z Fighers`
 * Application Group: Application
-* Environment: dev
-* Cost Center: 1234556
 * Stakeholders:
-  * Primary: Inosuke
-  * Secondary: Tanjiro
+  * Primary: Goku
+  * Secondary: Vegeta
+* Application Class: Application
 * Network Type: internet-only
+* Cost Center: 1234556
+
+### Dev Account Details
+* Account Number: `123456789012`
+* Organizations Path: Application/Dev
+
+### Test Account Details
+* Account Number: ``
+* Organizations Path: 
+
+### Staging Account Details
+* Account Number: ``
+* Organizations Path: 
+
+### Prod Account Details
+* Account Number: ``
+* Organizations Path: 
