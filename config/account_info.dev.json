@@ -1,6 +1,6 @@
 {
     "AccountAlias": "Demon Slayer Corps",
-    "ApplicationEnvironment": "prod",
+    "ApplicationEnvironment": "dev",
     "ApplicationGroup": "Application",
     "ApplicationId": "Nichirin",
     "ApplicationName": "Gohan",
