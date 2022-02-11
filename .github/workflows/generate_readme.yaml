@@ -1,10 +1,10 @@
-name: Generate Test README file
+name: Generate README file
 on:
   push:
     paths:
-      - 'config/account_info.test.json'
+      - 'config/project_info.json'
     branches:
-      - test
+      - dev
 permissions:
       id-token: write
       contents: write
@@ -20,5 +20,5 @@ jobs:
       - name: Generate README Update
         uses: ./.github/actions/generate-readme
         with:
-          environment-name: 'test'
-          target-branch: 'test'
+          environment-name: 'dev'
+          target-branch: 'dev'

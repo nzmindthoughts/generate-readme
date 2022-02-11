@@ -3,16 +3,11 @@ import argparse
 import json
 from pathlib import Path
 
-parser = argparse.ArgumentParser(description='Accept application environment')
-parser.add_argument('--aws_environment', type=str, help='Environment of AWS account in which templates will be deployed', required=True)
-args = vars(parser.parse_args())
-
-ENVIRONMENT_NAME = args['aws_environment']
 GENERATE_DIR = Path(__file__).parents[0]
 ROOT_DIR = Path(GENERATE_DIR).parents[0]
 JINJA_TEMPLATE_DIR = ROOT_DIR / 'jinja'
 CONFIG_DIR = ROOT_DIR / 'config'
-CONFIG_FILE_NAME = 'account_info.'+ENVIRONMENT_NAME+'.json'
+CONFIG_FILE_NAME = 'project_info.json'
 
 def load_file(file):
     with open(file, 'r') as myfile:
@@ -23,18 +18,20 @@ def get_render_variables(file):
     output = {}
     filedata = load_file(file)
     obj = json.loads(filedata)
-    output['alias'] = obj['AccountAlias']
-    output['env'] = obj['ApplicationEnvironment']
     output['group'] = obj['ApplicationGroup']
-    output['AppId'] = obj['ApplicationId']
     output['name'] = obj['ApplicationName']
     output['networktype'] = obj['ApplicationNetworkType']
     output['primary'] = obj['ApplicationPrimaryStakeholder']
     output['secondary'] = obj['ApplicationSecondaryStakeholder']
-    output['rootemail'] = obj['RootEmail']
-    output['accountnumber'] = obj['AccountNumber']
+    output['devaccountnumber'] = obj['DevAccountNumber']
+    output['testaccountnumber'] = obj['TestAccountNumber']
+    output['stagingaccountnumber'] = obj['StagingAccountNumber']
+    output['prodaccountnumber'] = obj['ProdAccountNumber']
     output['class'] = obj['OrgAccountClass']
-    output['orgpath'] = obj['OrgPath']
+    output['devorgpath'] = obj['DevOrgPath']
+    output['testorgpath'] = obj['TestOrgPath']
+    output['stagingorgpath'] = obj['StagingOrgPath']
+    output['prodorgpath'] = obj['ProdOrgPath']
     output['costcenter'] = obj['CostCenter']
     return output
 
