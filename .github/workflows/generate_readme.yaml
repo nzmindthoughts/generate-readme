@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate README
         run: |
-          git checkout -b readme-update-${{ inputs.environment-name }}
+          git checkout -b readme-update-dev
           make readme
       - name: Commit README
         run: |
