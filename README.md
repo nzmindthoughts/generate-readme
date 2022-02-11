@@ -5,7 +5,7 @@
 * Application Name: `Z Fighers`
 * Application Group: Application
 * Stakeholders:
-  * Primary: Trunks
+  * Primary: Gohan
   * Secondary: Goten
 * Network Type: internet-only
 * Cost Center: 1234556
