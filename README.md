@@ -16,13 +16,13 @@
 * Organizations Path: Application/Dev
 
 ### Test Account Details
-* Account Number: `234567890123`
-* Organizations Path: Application/Test
+* Account Number: ``
+* Organizations Path: 
 
 ### Staging Account Details
-* Account Number: `345678901234`
-* Organizations Path: Application/Test
+* Account Number: ``
+* Organizations Path: 
 
 ### Prod Account Details
-* Account Number: `456789012345`
-* Organizations Path: Application/Prod
+* Account Number: ``
+* Organizations Path: 
