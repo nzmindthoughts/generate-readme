@@ -8,7 +8,6 @@
     "TestAccountNumber": "",
     "StagingAccountNumber": "",
     "ProdAccountNumber": "",
-    "OrgAccountClass": "Application",
     "DevOrgPath": "Application/Dev",
     "TestOrgPath": "",
     "StagingOrgPath": "",
