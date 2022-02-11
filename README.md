@@ -5,9 +5,8 @@
 * Application Name: `Z Fighers`
 * Application Group: Application
 * Stakeholders:
-  * Primary: Goku
-  * Secondary: Vegeta
-* Application Class: Application
+  * Primary: Trunks
+  * Secondary: Goten
 * Network Type: internet-only
 * Cost Center: 1234556
 

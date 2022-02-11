@@ -5,6 +5,9 @@ on:
       - 'config/project_info.json'
     branches:
       - dev
+      - test
+      - staging
+      - main
 permissions:
       id-token: write
       contents: write
@@ -17,8 +20,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate README Update
-        uses: ./.github/actions/generate-readme
-        with:
-          environment-name: 'dev'
-          target-branch: 'dev'
+      - name: Generate README
+        run: |
+          git checkout -b readme-update-${{ github.ref_name }}
+          make readme
+      - name: Commit README
+        run: |
+          git config --global user.email "github-actions@example.com"
+          git config --global user.name "GitHub README Action"
+          git add README.md
+          git commit -m "Updating README file on ${{ github.ref_name }} branch"
+          git push --set-upstream origin readme-update-${{ github.ref_name }}
+      - name: Create PR
+        id: create-pr
+        if: env.PULL_REQ_NUMBER == ''
+        run: |
+          gh pr create --base ${{ github.ref_name }} --head readme-update-${{ github.ref_name }} --title 'README Update: ${{ github.ref_name }} Update.' --body "Updating README file on ${{ github.ref_name }} branch"
