@@ -1,5 +1,4 @@
 from jinja2 import Template
-import argparse
 import json
 from pathlib import Path
 
@@ -27,7 +26,6 @@ def get_render_variables(file):
     output['testaccountnumber'] = obj['TestAccountNumber']
     output['stagingaccountnumber'] = obj['StagingAccountNumber']
     output['prodaccountnumber'] = obj['ProdAccountNumber']
-    output['class'] = obj['OrgAccountClass']
     output['devorgpath'] = obj['DevOrgPath']
     output['testorgpath'] = obj['TestOrgPath']
     output['stagingorgpath'] = obj['StagingOrgPath']

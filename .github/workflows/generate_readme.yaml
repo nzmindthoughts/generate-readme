@@ -1,10 +1,18 @@
 name: Generate README file
 on:
-  push:
-    paths:
-      - 'config/project_info.json'
-    branches:
-      - dev
+  workflow_dispatch:
+    inputs:
+      lowest_branch:
+        type: choice
+        description: 'Branch corresponding to the lowest application environment'
+        required: true
+        default: 'dev'
+        options:
+          - dev
+          - test
+          - staging
+          - main
+
 permissions:
       id-token: write
       contents: write
@@ -17,8 +25,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate README Update
-        uses: ./.github/actions/generate-readme
-        with:
-          environment-name: 'dev'
-          target-branch: 'dev'
+      - name: Generate README
+        run: |
+          git checkout -b readme-update-${{ github.event.inputs.lowest_branch }}
+          make readme
+      - name: Commit README
+        run: |
+          git config --global user.email "${{ github.actor }}@hss.edu"
+          git config --global user.name "${{ github.actor }}"
+          git add README.md
+          git commit -m "Updating README file on ${{ github.event.inputs.lowest_branch }} branch"
+          git push --set-upstream origin readme-update-${{ github.event.inputs.lowest_branch }}
