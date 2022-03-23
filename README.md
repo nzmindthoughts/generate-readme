@@ -16,7 +16,7 @@
 
 ### Test Account Details
 * Account Number: ``
-* Organizations Path: 
+* Organizations Path: Application/Test
 
 ### Staging Account Details
 * Account Number: ``
