@@ -1,13 +1,18 @@
 name: Generate README file
 on:
-  push:
-    paths:
-      - 'config/project_info.json'
-    branches:
-      - dev
-      - test
-      - staging
-      - main
+  workflow_dispatch:
+    inputs:
+      lowest_branch:
+        type: choice
+        description: 'Branch corresponding to the lowest application environment'
+        required: true
+        default: 'dev'
+        options:
+          - dev
+          - test
+          - staging
+          - main
+
 permissions:
       id-token: write
       contents: write
@@ -22,17 +27,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate README
         run: |
-          git checkout -b readme-update-${{ github.ref_name }}
+          git checkout -b readme-update-${{ github.event.inputs.lowest_branch }}
           make readme
       - name: Commit README
         run: |
-          git config --global user.email "github-actions@example.com"
-          git config --global user.name "GitHub README Action"
+          git config --global user.email "${{ github.actor }}@hss.edu"
+          git config --global user.name "${{ github.actor }}"
           git add README.md
-          git commit -m "Updating README file on ${{ github.ref_name }} branch"
-          git push --set-upstream origin readme-update-${{ github.ref_name }}
-      - name: Create PR
-        id: create-pr
-        if: env.PULL_REQ_NUMBER == ''
-        run: |
-          gh pr create --base ${{ github.ref_name }} --head readme-update-${{ github.ref_name }} --title 'README Update: ${{ github.ref_name }} Update.' --body "Updating README file on ${{ github.ref_name }} branch"
+          git commit -m "Updating README file on ${{ github.event.inputs.lowest_branch }} branch"
+          git push --set-upstream origin readme-update-${{ github.event.inputs.lowest_branch }}
