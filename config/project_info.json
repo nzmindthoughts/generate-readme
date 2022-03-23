@@ -9,7 +9,7 @@
     "StagingAccountNumber": "",
     "ProdAccountNumber": "",
     "DevOrgPath": "Application/Dev",
-    "TestOrgPath": "",
+    "TestOrgPath": "Application/Test",
     "StagingOrgPath": "",
     "ProdOrgPath": "",
     "CostCenter": "1234556"
