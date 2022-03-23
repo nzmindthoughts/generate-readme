@@ -36,3 +36,7 @@ jobs:
           git add README.md
           git commit -m "Updating README file on ${{ github.event.inputs.lowest_branch }} branch"
           git push --set-upstream origin readme-update-${{ github.event.inputs.lowest_branch }}
+      - name: Create PR
+        id: create-pr
+        run: |
+          gh pr create --base ${{ github.event.inputs.lowest_branch }} --head readme-update-${{ github.event.inputs.lowest_branch }} --title 'README Update: ${{ github.event.inputs.lowest_branch }} Update.' --body "Updating README file on ${{ github.event.inputs.lowest_branch }} branch"
